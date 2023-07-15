@@ -278,7 +278,7 @@ private class PainterWithMarkerModifier(
             if (markerColor.isSpecified) {
                 drawIntoCanvas {
                     val layerRect = Rect(Offset.Zero, scaledSize)
-                    val markerOffset = Offset(scaledSize.width / 2 + 6.dp.toPx(), scaledSize.height / 2 - 8.dp.toPx())
+                    val markerOffset = Offset(scaledSize.width / 2 + 6.dp.toPx(), scaledSize.height / 2 - 6.dp.toPx())
 
                     it.withSaveLayer(layerRect, obtainPaint()) {
                         with(painter) {
