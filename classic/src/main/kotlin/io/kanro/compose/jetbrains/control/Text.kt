@@ -37,6 +37,7 @@ fun Text(
     lineHeight: TextUnit = TextUnit.Unspecified,
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
+    minLines: Int = Int.MAX_VALUE,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
     style: TextStyle = LocalTextStyle.current,
@@ -56,6 +57,7 @@ fun Text(
         lineHeight,
         overflow,
         softWrap,
+        minLines,
         maxLines,
         emptyMap(),
         onTextLayout,
@@ -79,6 +81,7 @@ fun Text(
     lineHeight: TextUnit = TextUnit.Unspecified,
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
+    minLines: Int = Int.MAX_VALUE,
     maxLines: Int = Int.MAX_VALUE,
     inlineContent: Map<String, InlineTextContent> = mapOf(),
     onTextLayout: (TextLayoutResult) -> Unit = {},
@@ -112,6 +115,7 @@ fun Text(
         onTextLayout,
         overflow,
         softWrap,
+        minLines,
         maxLines,
         inlineContent
     )

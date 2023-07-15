@@ -6,6 +6,7 @@ import androidx.compose.foundation.ContextMenuRepresentation
 import androidx.compose.foundation.ContextMenuState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.forEachGesture
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -65,13 +66,11 @@ private fun Modifier.contextMenuDetector(
 ): Modifier {
     return if (enabled && state.status == ContextMenuState.Status.Closed) {
         this.pointerInput(state) {
-            forEachGesture {
-                awaitPointerEventScope {
-                    val event = awaitEventFirstDown()
-                    if (event.buttons.isSecondaryPressed) {
-                        event.changes.forEach { if (it.pressed != it.previousPressed) it.consume() }
-                        state.status = ContextMenuState.Status.Open(Rect(event.changes[0].position, 0f))
-                    }
+            awaitEachGesture {
+                val event = awaitEventFirstDown()
+                if (event.buttons.isSecondaryPressed) {
+                    event.changes.forEach { if (it.pressed != it.previousPressed) it.consume() }
+                    state.status = ContextMenuState.Status.Open(Rect(event.changes[0].position, 0f))
                 }
             }
         }
