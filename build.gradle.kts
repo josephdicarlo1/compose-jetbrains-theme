@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.7.20" apply false
-    id("org.jetbrains.compose") version "1.2.1" apply false
+    kotlin("jvm") version "1.8.20" apply false
+    id("org.jetbrains.compose") version "1.4.1" apply false
     id("nebula.maven-publish") version "18.0.0" apply false
     id("nebula.source-jar") version "18.0.0" apply false
     id("nebula.info") version "11.0.1" apply false
@@ -14,7 +14,7 @@ allprojects {
     apply(plugin = "nebula.info")
 
     group = "com.bybutter.compose"
-    version = "2.1.0"
+    version = "2.2.0"
 
     contacts {
         addPerson("higan@live.cn", delegateClosureOf<nebula.plugin.contacts.Contact> {
